@@ -254,9 +254,9 @@ public class HelloJava {
 			boolean isBonus = false;
 			
 	 	// match 카운트로 당첨등수 확인
-			for (int i=0; i<LottoMachine.length; i++) {
-				for (int j=0; j<userLotto.length; j++) {
-					if ( LottoMachine[i]==userLotto[j]) {
+			for (int i=0; i<userLotto.length; i++) {
+				for (int j=0; j<LottoBall.length; j++) {
+					if ( LottoBall[j]==userLotto[i]) {
 						matchcount ++;
 						break;
 					}
@@ -282,5 +282,7 @@ public class HelloJava {
 			else if(matchcount == 3) {
 				System.out.println("4등");
 			}
+			else
+				System.out.println("꽝");
 	}
 }
