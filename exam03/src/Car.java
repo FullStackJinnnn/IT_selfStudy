@@ -15,14 +15,15 @@
 // 이것을 클래스의 객체화/인스턴스 화 라고 부른다.
 // car 변수명 = new Car();
 // 클래스의 변수를 부를땐 인스턴스라 부른다 변수인데 객체를 담고있음.
+//객체를 선언한 변수를 인스턴스라 부른다.
 
 public class Car {
 	//초기값안주면 0이나 null이 들어간다.
-	int year; //연도 
+	int year; //연도                 //-> 인스턴스 맴버 (객체를 선언해야 혹은 인스턴스를 만들어야 사용할 수 있다)
 	String carName; //자동차 이름 
 	
 	public void go() {
-		System.out.println(carName + "출발합니다");
+		System.out.println(carName + "출발합니다");		//인스턴스 메서드 
 	}
 	
 	
