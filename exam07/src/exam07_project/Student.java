@@ -3,7 +3,10 @@ package exam07_project;
 import java.math.BigDecimal;
 import java.math.RoundingMode; //java.util << 패키지 Scanner << 클래스
 //기본적으로 제공되지 않기 때문에 import 해줘야함.
-
+//패키지란!!!!!!!!!!!
+//패키지가 달라지면 동명의 클래스가 생길 수 있다.
+//패키지는 폴더같은 개념!
+//같은폴더에 넣어놓는 느낌 
 //패키지는 목적별로 정리리를 도와주는것!
 //ex 유틸, 언어, math, ui등등 목적에따라 패키지를 나눠 클래스 관리!
 

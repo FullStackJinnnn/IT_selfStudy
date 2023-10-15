@@ -33,7 +33,8 @@ public class StdService {
 			//학생 객체르 생성
 			Student st = new Student(myName, kor, eng, math);
 			//배열에 저장
-			stdArray[i] =st;
+			
+			stdArray[i] = st;
 			
 			}
 			
