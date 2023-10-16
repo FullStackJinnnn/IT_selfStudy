@@ -8,6 +8,11 @@ public class CompMain {
 		
 		//LZcom com = new LZcom();
 		//오른쪽에 있는 bew LZcom() 자체가 값이 될 수 있다. 
+		
+		//LZcom com1 = new LZcom();
+		//SamsongCom com2 = new SamsongCom();
+		
+		
 		room.setCom1(new LZcom());
 		room.setCom2(new SamsongCom());
 		
