@@ -1,5 +1,5 @@
 package exam12.local.cls;
-
+//클래스를 객체화, 내부클래스도 객화해서 내부클래스 메서드에 접근.
 public class Unit {
 	//메서드 내부 클래스는 부여된 객체만 사용가능한 장점이 있다 ...
 	private int speed = 10;
@@ -20,16 +20,15 @@ public class Unit {
 			}
 		}
 		Tank t =null; //Object란 객체의 최상위
-		Ship s =null;
+		Ship s = new Ship();
 		if(type.equals("ship")) {
-			s = new Ship();
+			//s = new Ship();
 			s.move();
 		}else if(type.equals("Tank")) {
 			t = new Tank();
 			t.move();
 		}
 		
-	//지역 클래스에서 메서드 내의 변수를 사용하려면 해당변수는 final 이어야한다.
 	
 
 

@@ -23,7 +23,7 @@ public class Exam01Main {
 			@Override
 			public void introduce() {
 				//a= "멋진 + a ; // 익명 클래스도 지역클래스 이기때문에 final 변수만 사용 바꾸면 안됌
-				System.out.println("a +나는 생각하는사람");
+				System.out.println(a +"나는 생각하는사람");
 			}
 		};
 		

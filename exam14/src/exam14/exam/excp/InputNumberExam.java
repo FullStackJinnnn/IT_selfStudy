@@ -32,8 +32,11 @@ public class InputNumberExam {
 				
 				
 			}catch (Exception e) {//이리와서 처리하고 다시 버퍼로 가게된다.
-				scan.nextLine(); //입력받기전에 이전 내용 
+				scan.nextLine(); //입력받기전에 이전 내용
 				System.out.println(e.getMessage() == null ?  "입력에 ㅁ문제발생생" : e.getMessage());
+				//버퍼를 null로 비우고 다시 입력 받는다.?
+				//조건 ? value1 : value2 식 
+				// 조건이 참이면 value1실행 아니면 value2실행 
 			}
 		}	
 

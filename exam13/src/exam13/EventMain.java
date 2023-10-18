@@ -5,7 +5,7 @@ public class EventMain {
 	
 	public class Button{
 		private ButtonClickListener listener; //인터페이스 버튼클릭리스너타입 변수 
-		//setter
+		//setter를 통해 변수접근 
 		public void setListener(ButtonClickListener listener) { //리스너를 파라미터를 private 리스너에 접근하게 지정 해주는 메서드
 			this.listener = listener;
 		}

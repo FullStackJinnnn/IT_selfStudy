@@ -34,7 +34,7 @@ public class ThrowableExam {
 		
 		
 	}catch (InputMismatchException e) {
-		System.out.println("키더브 입력이 잘못되었습니다.");
+		System.out.println("키보드 입력이 잘못되었습니다.");
 	}finally {
 		
 		if(scan != null) {

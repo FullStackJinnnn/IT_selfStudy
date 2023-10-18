@@ -13,11 +13,11 @@ public class Calculator {
 			return val1 + val2;
 		}
 		
-		//내부클래스 + 인스턴스클래스 선언
-		//인스턴스 클래스는 외부클래스의 변수/메서드 사용가능
+		//내부클래스
+		//내부클래스는 외부클래스의 변수/메서드 사용가능
 		public class Calc{
 			public int add() {
-				return val1 + val2;
+				return val1 + val2; //생성자를통해 접근한 private 변수 
 			}
 		}
 }
