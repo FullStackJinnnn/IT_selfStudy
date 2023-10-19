@@ -12,6 +12,8 @@ public class ThrowableExam {
 		//checkYourself 가 호출한쪽			//위 코드는 try catch를 지워도 에러가 나지 않는다.
 										// 그 이유는 nputMismatchException 이 옵셔널 기능이기 떄문
 										//시스템이 판단하진않고 처리하려면 하는것.
+		//throws는 메소드를 정의할 때 사용하며, 이 메소드에서 발생할 수 있는 Exception을 명시적으로 정의할 때 사용합니다. 
+		//따라서 throws를 보면 잠재적으로 어떤 Exception을 발생될 수 있는지 쉽게 알 수 있습니다.
 		System.out.println("1. 사람과 있는것이 좋다 / 2. 혼자 가 좋다");
 		System.out.println("선택 >>");
 		
@@ -28,9 +30,9 @@ public class ThrowableExam {
 		
 		Scanner scan = new Scanner(System.in);
 	try {
-		
+		//ThrowableExam. Tr = new ThrowableExam();
 		System.out.println("===성격유형검사를시작합니다.==");
-		ThrowableExam.checkYourSelf(scan);
+		ThrowableExam.checkYourSelf(scan); //스테틱 메서드라 객체화 없이 사용 
 		
 		
 	}catch (InputMismatchException e) {

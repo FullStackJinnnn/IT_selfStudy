@@ -27,14 +27,19 @@ public class InputNumberExam {
 					break;
 				}else if (val >50 || val < 1) {
 					//새로운 객체를 던질것이다.
-					throw new Exception("숫자 허용범위 X");
+					throw new Exception("숫자 허용범위 X"); //
+					//"숫자 허용범위 x" 를 출력하고 다시 루프로 돌아간다 
+					//if else if 둘다 만족 못할때 catch구문으로 넘어감
 				}	//throws 는 메서드 throw는 내가던지겠다.
 				
 				
 			}catch (Exception e) {//이리와서 처리하고 다시 버퍼로 가게된다.
-				scan.nextLine(); //입력받기전에 이전 내용
-				System.out.println(e.getMessage() == null ?  "입력에 ㅁ문제발생생" : e.getMessage());
-				//버퍼를 null로 비우고 다시 입력 받는다.?
+				scan.nextLine(); //catch 구문으로 넘어오면 scan버퍼에 입력된것을 지우고 새 스캔을 받는다.
+				//입력 받기전에 이전내용 flush
+				//안그러면 무한루프 돈다 .
+				System.out.println(e.getMessage() == null ?  "입력에 문제발생생" : e.getMessage());
+				//메세지 버퍼가 비어져 있으면 입력에 문제발생 출력 아니면 원래 받은 메세지 출력 
+				//에러에 대한 시스템 메세지를 null로 주기 떄문에 직접 에러메세지 설정 
 				//조건 ? value1 : value2 식 
 				// 조건이 참이면 value1실행 아니면 value2실행 
 			}

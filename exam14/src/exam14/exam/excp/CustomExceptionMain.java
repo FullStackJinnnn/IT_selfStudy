@@ -13,7 +13,7 @@ public class CustomExceptionMain {
 		int age = scan.nextInt();
 		
 		if(age <1) {
-			throw new CustomException("입력 범위오류"); //예외처리를 직접 만들 수 있다.
+			throw new CustomException();//"입력 범위오류"); //예외처리를 직접 만들 수 있다.
 		}else if (age <=5) {
 			System.out.println("유아");
 		}else if(age <15 ) {
