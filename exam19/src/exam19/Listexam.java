@@ -9,6 +9,7 @@ public class Listexam {
 	public static void main(String[] args) {
 		
 		//ArrayList<Integer>list01 = new ArrayList<>();
+		//<Intger>처럼 꺽쇄안을 클래스형으로 쓰는이유는 기본형이 Object이기 때문에 우리가 쓰는 데이터타입도 Object 하위인 클래스형태가 되어야한다.
 		//리스트는 이렇게 선언하지 않는다 모든 리스트는 인터페이스 리스트를 상속하고 구현하는 구현체이기때문에
 		//선언할때는 다형성을 이용해 형변환을 이용. 부모타입으로 형변환.
 		List<Integer> list = new ArrayList<>();
@@ -47,9 +48,12 @@ public class Listexam {
 		
 		System.out.println("\n----------------");
 		
-		for(int val : list) {
+		for(int val : list) { // 향상된 포문
 			System.out.print(val + "\t");
 		}
+		//for (자료형 변수명:배열명) {
+			//문장
+		//}
 		
 		System.out.println("\n----------------");
 		

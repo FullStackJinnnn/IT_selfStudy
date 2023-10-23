@@ -12,7 +12,7 @@ public class TextExamMain {
 		TextMessage msg2 = new TextMessage("1001", "좋은아침");
 		TextMessage msg3 = new TextMessage("1001", "좋은아침");
 		TextMessage msg4 = new TextMessage("1002", "잘자요");
-		
+		// 검색1, 검색2로 어떻게 타는지 확인가능
 		Set<TextMessage> txSet = new HashSet<>(); //일반 헤쉬셋은 순서가없다.
 		//앞에다 set을 두는 이유는 뒤에애들 목적에 따라서 쉽게 바꿀수 있기 때문이다.
 		

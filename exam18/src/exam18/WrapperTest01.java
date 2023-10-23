@@ -18,7 +18,7 @@ public class WrapperTest01 {
 	
 		
 		//모든 wrapper 클래스는 
-		//Parse...을 가지고있다.
+		//.Parsexxx을 가지고있다. ParseInt(), ParseDouble()
 		//Parse Int() Parse long() Parse Double()
 	}
 }
