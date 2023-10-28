@@ -8,6 +8,7 @@ public class StorageMain {
 		AddStack as = new AddStack(s);
 		PopStack ps = new PopStack(s);
 		
+		
 		as.start();
 		ps.start();
 		

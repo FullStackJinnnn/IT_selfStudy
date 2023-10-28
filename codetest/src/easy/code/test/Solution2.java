@@ -1,4 +1,4 @@
-//두수의 차
+//두수의 곱
 package easy.code.test;
 
 import java.util.Scanner;
