@@ -24,6 +24,7 @@ public class FileReadExam {
 			//아스키코드표에 의해서 문자--> 숫자로 표기하여 리턴
 			System.out.print((char)read); //ln을 쓰면 줄바꿈까지 읽어서 안된다.
 		}
+		
 		}catch (IOException e) {
 			e.printStackTrace();
 		}finally {

@@ -4,7 +4,7 @@ public class AddStack extends Thread {
 
 	private Storage st;
 	
-	public AddStack(Storage st) {
+	public AddStack(Storage st) { //생성자를 통해 데이터넣기
 		this.st = st;
 		
 	}

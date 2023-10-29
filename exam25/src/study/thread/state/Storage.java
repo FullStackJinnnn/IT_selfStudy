@@ -1,6 +1,9 @@
 package study.thread.state;
 
 public class Storage {
+	public Storage () {
+		
+	}
 	private int stackCount = 10; //물건 10개 가진다.
 	
 	public synchronized void addStack(int stackCount) {
