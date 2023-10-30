@@ -6,7 +6,7 @@ import java.util.Scanner;
 class Solution15 {
     public int[] solution(int[] num_list) {
         int[] answer = {};
-        answer = new int[num_list.length];
+        answer = new int[num_list.length]; //num_list배열의 크기만큼의 배열이라고 선언
         for (int i=num_list.length-1;  i >=0; i--) {
             answer[num_list.length-1-i] = num_list[i];
         }
