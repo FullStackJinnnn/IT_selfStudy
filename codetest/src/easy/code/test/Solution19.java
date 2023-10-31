@@ -1,30 +1,30 @@
-//배열 두배
+//배열원소 길이
 package easy.code.test;
 
 import java.util.Scanner;
 
-class Solution18 {
-    public int[] solution(int[] numbers) {
-        int[] answer = new int[numbers.length];
-        for (int i=0; i<numbers.length; i++) {
-            answer[i] = numbers[i] *2;
+class Solution19 {
+    public int[] solution(String[] strlist) {
+        int[] answer = new int[strlist.length];
+        for (int i=0; i<strlist.length; i++) {
+            answer[i] = strlist[i].length();
         }
-        
         return answer;
     }
 
 
 
+
 	public static void main(String[] args){
 	    
-		Solution18 sol = new Solution18();
+		Solution19 sol = new Solution19();
 	    Scanner scan = new Scanner(System.in);
 	    System.out.println("입력할 배열의 수 :");
 	    int count = scan.nextInt();
-	    int[] array1 = new int[count];
+	    String[] array1 = new String[count];
 	    System.out.println("숫자를 1개씩 입력하세요 :");
 	    for (int i=0; i<count; i++) {
-	    	array1[i] = scan.nextInt();
+	    	array1[i] = scan.next();
 	    }
 	    
 	    int[] array2 = sol.solution(array1);

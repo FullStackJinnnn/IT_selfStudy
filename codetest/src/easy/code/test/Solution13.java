@@ -1,4 +1,4 @@
-//문자열 개수 
+ 	//문자열 개수 
 package easy.code.test;
 
 import java.util.Scanner;
