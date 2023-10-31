@@ -6,23 +6,20 @@ import java.util.Scanner;
 class Solution21 {
     public int solution(int[] numbers) {
         int answer = 0;
-        int temp1 = numbers[0];
-        int temp1index = 0;
-        int temp2 = 0;
-        for (int i=0; i<numbers.length; i++) {
-            if(temp1 < numbers[i]) {
-                temp1 = numbers[i];
-                temp1index = i;
+        int max = numbers[0];
+        int prevmax = 0;
+        for (int i=1; i<numbers.length; i++) {
+            if(max < numbers[i]) {
+                prevmax = max ;
+                max = numbers[i];
+            }
+            else if (prevmax < numbers[i]) {
+            	prevmax = numbers[i];
             }
         }
-        numbers[temp1index] = 0;
-    
-        for (int i=0; i<numbers.length; i++) {
-            if(temp2 < numbers[i]) {
-                temp2 = numbers[i];
-            }
-        }   
-        answer = temp1 * temp2;
+
+
+        answer = max * prevmax;
         return answer;
     }
 
@@ -47,7 +44,7 @@ class Solution21 {
 	    for (int i=0; i<array1.length; i++) {
 	    	System.out.print(array1[i] + " ");
 	    }
-	    System.out.println("최대값 : " + answer);
+	    System.out.println("\n최대값 : " + answer);
 	    
 	}
 }
