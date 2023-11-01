@@ -1,4 +1,4 @@
-//두수의 합
+//두수의 나누기
 package easy.code.test;
 
 import java.util.Scanner;

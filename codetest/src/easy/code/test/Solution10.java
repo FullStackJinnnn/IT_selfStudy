@@ -1,4 +1,4 @@
-//각도기
+//정수이하짝수
 package easy.code.test;
 
 import java.util.Scanner;

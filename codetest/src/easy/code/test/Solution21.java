@@ -10,14 +10,13 @@ class Solution21 {
         int prevmax = 0;
         for (int i=1; i<numbers.length; i++) {
             if(max < numbers[i]) {
-                prevmax = max ;
+                prevmax = max ; //앞뒤 원소 비교후 뒤가 더 크면 prevmax에 임시저장 후 max 갱신
                 max = numbers[i];
             }
-            else if (prevmax < numbers[i]) {
+            else if (prevmax < numbers[i]) {  // 뒤가 더 작으면 prevmax와 뒤 원소 비교후 prevmax 갱신
             	prevmax = numbers[i];
             }
         }
-
 
         answer = max * prevmax;
         return answer;

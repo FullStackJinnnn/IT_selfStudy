@@ -1,4 +1,4 @@
-//각도기
+//피자조각나누기
 package easy.code.test;
 
 import java.util.Scanner;
