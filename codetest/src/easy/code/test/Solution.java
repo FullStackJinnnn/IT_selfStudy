@@ -41,6 +41,11 @@ public class Solution {
                     System.out.println("j증가" + j);
             }
         }
+        
+        String[] s = Integer.toString(1234).split(""); //특정 문자를 기준으로 문자를 나눈다.1234 -> 문자열 배열 {1,2,3,4};
+        for (int i=0; i<s.length; i++) {
+        System.out.println(s[i]);
+        }
 
 	
 	}

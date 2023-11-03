@@ -4,34 +4,40 @@ package easy.code.test;
 import java.util.Scanner;
 
 class Solution31 {
-    public String solution(String my_string, String letter) {
-        String answer = "";
-        char c = letter.charAt(0);
-        for(int i=0; i<my_string.length(); i++){
-            char temp = my_string.charAt(i);
-            if(temp==c) continue; //continue로 동일한값 빼고 문자열 받기.
-            answer+=temp;
+    public int solution(int n) {
+        int answer = 0;
 
+        String str = "" + n;
+
+        for(int i=0;i<str.length();i++){
+            answer += Integer.parseInt(""+str.charAt(i)); //char 가 아닌 문자열로 리턴
         }
 
         return answer;
     }
+   //또다른방법
 //    class Solution {
-//        public String solution(String my_string, String letter) {
-//            String answer = "";
-//            answer = my_string.replace(letter,"");
+//        public int solution(int n) {
+//            int answer = 0;
+//            while (n!=0) {
+//                 answer += n%10;
+//                 n /= 10;
+//                    
+//                }
+//            
+//             
 //            return answer;
 //        }
 //    }
-    
+
 	
 	
 	public static void main(String[] args) {
 		Solution31 sol = new Solution31() ;
 		Scanner scan = new Scanner(System.in);
-		String my_string = "abcddddef";
-		String letter = "d";
-		String answer = sol.solution(my_string,letter);
+		System.out.println("정수입력 :");
+		int num = scan.nextInt();
+		int answer = sol.solution(num);
 		
 		System.out.println(answer);
 	}
