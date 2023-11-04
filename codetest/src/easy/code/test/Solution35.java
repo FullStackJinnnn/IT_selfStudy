@@ -1,4 +1,4 @@
-//문자열에서 특정문자 제거
+//문자열에서 제곱
 package easy.code.test;
 
 import java.util.Scanner;
