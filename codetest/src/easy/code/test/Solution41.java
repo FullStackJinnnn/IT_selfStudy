@@ -295,3 +295,58 @@
 //        return answer;
 //    }
 //}
+//피자나눠먹기
+//class Solution {
+//    public int solution(int n) {
+//        int answer = 1;
+//        int i =1;
+//        while ((i*6)%n!=0) {
+//            i++;
+//        }
+//        answer = i;
+//        return answer;
+//    }
+//}
+//369게임
+//class Solution {
+//    public int solution(int order) {
+//        int answer = 0;
+//        String num = order + "";
+//        for (int i=0; i<num.length(); i++ ) {
+//            if (num.charAt(i) == '3' || num.charAt(i) == '6' || num.charAt(i)  == '9') {
+//                answer ++;
+//            }
+//        }
+//        return answer;
+//    }
+//}
+//숫자찾기
+//class Solution {
+//    public int solution(int num, int k) {
+//        int answer = 0;
+//        String str = num + "";
+//        for (int i=0; i<str.length(); i++) {
+//            if (str.charAt(i) == (char)k+'0') {
+//                answer = i;
+//                answer++;
+//                break;
+//            } else {
+//                answer = -1;
+//            }
+//             
+//        }
+//        return answer;
+//    }
+//}
+//문자열 정렬
+//import java.util.*;
+//class Solution {
+//    public String solution(String my_string) {
+//        String answer = "";
+//        answer = my_string.toLowerCase();
+//        char[] temp = answer.toCharArray();
+//        Arrays.sort(temp);
+//        answer = String.valueOf(temp);
+//        return answer;
+//    }
+//}
