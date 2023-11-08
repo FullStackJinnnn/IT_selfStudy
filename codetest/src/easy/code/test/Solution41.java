@@ -350,3 +350,45 @@
 //        return answer;
 //    }
 //}
+//합성수찾기
+//class Solution {
+//    public int solution(int n) {
+//        int answer = 0;
+//        int count = 0;
+//        for (int i=4; i<=n; i++) {
+//            for (int j=1; j<=i; j++) {
+//                if (i%j ==0) {
+//                    count++;
+//                }
+//            }
+//            if (count >=3) {
+//                answer++;
+//                count=0;
+//            }
+//        }
+//    
+//        return answer;
+//    }
+//}
+//중복문자제거
+//class Solution {
+//    public String solution(String my_string) {
+//        String answer = "";
+//        answer += my_string.charAt(0); 
+//        int count = 0;
+//        for (int i=1; i<my_string.length(); i++) {
+//            for(int j=0;  j<i; j++) {
+//                if (my_string.charAt(i)==my_string.charAt(j)) {
+//                    count ++;
+//                }
+//            }
+//            if(count>0) {
+//                answer += "";
+//            } else {
+//                answer += my_string.charAt(i);
+//            }
+//            count =0;
+//        }
+//        return answer;
+//    }
+//}
