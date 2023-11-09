@@ -392,3 +392,352 @@
 //        return answer;
 //    }
 //}
+//2차원만들기
+//class Solution {
+//    public int[][] solution(int[] num_list, int n) {
+//        int[][] answer = {};
+//        int k = 0;
+//        answer =new int[num_list.length/n][n];
+//        for (int i=0; i<num_list.length/n; i++) {
+//            for (int j=0; j<n; j++) {
+//                answer[i][j] = num_list[k++];            
+//                }
+//        }
+//        return answer;
+//    }
+//}
+////A로 B만들기
+//class Solution {
+//    public int solution(String before, String after) {
+//        int answer = 0;
+//        int count = 0;
+//        StringBuilder sb = new StringBuilder(after);
+//        for (int i=0; i<before.length(); i++) {
+//            for (int j=0; j<before.length(); j++) {
+//                if (before.charAt(i) == after.charAt(j)) {
+//                    sb.setCharAt(j, '1');
+//                    after=sb.toString();
+//                    //after = after.replace(after.charAt(j) +"", "1");
+//                    count ++;
+//                    break;
+//                }
+//                //System.out.println(after);
+//            }
+//        }
+//        //System.out.println(count);
+//        if (count == before.length()) {
+//            answer = 1;
+//        } else { 
+//            answer = 0;
+//        }
+//        return answer;
+//    }
+//}
+////모스부호
+//import java.util.Arrays;
+//class Solution {
+//    public String solution(String letter) {
+//        String answer = "";
+//        String[] morse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+//        char[] alpha = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+//        String space[] = letter.split(" ");
+//        for (String x : space) {
+//            for (int i=0; i<morse.length; i++) {
+//                if (x.equals(morse[i])) {
+//                    answer += alpha[i];
+//                }
+//            }
+//        }
+//      String morseStr = "'.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',"
+//                + "'--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',"
+//                + "'--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',"
+//                + "'...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',"
+//                + "'-.--':'y','--..':'z'";
+//        System.out.print(morseStr.toString());
+//        
+//         String[] morseArr = morseStr.split(",");
+//  
+//
+//        for (int i = 0; i < morseArr.length; i++) {
+//            morseArr[i] = morseArr[i].replace("'", "");
+//            int idx = morseArr[i].indexOf(":");
+//             System.out.print(i);
+//        }
+//     return answer;
+//    }
+//   
+//}
+////팩토리얼
+//class Solution {
+//    public int factorial(int n) {
+//        int factnum = 1;
+//        for (int i=1; i<=n; i++) {
+//            factnum *= i;
+//        }
+//        return factnum;
+//    }
+//    
+//    public int solution(int n) {
+//        int answer = 1;
+//        while (factorial(answer) <= n) {
+//            answer ++;
+//        }
+//        System.out.println(factorial(10));
+//        return answer-1;
+//    }
+//}
+////k의 개수
+//class Solution {
+//    public int solution(int i, int j, int k) {
+//        int answer = 0;
+//        String temp = "";
+//    
+//    
+//        for (int a=i; a<=j; a++) {
+//            temp += a + "" ;//Integer.toString(a);
+//        }
+//        
+//        for (int a=0; a<temp.length(); a++) {
+//            if (temp.charAt(a)  == (char)(k+'0')) {
+//                answer ++;
+//                
+//            }
+//        }
+//                
+//        return answer;
+//    }
+//}
+////숨어있는 숫자 덧셈
+//import java.util.Arrays;
+//class Solution {
+//    public int solution(String my_string) {
+//        int answer = 0;
+//        String num = "";
+//        my_string = my_string.replaceAll("[a-zA-Z]"," ");
+//
+//        //my_string = my_string.trim();
+//        System.out.print(my_string);
+//       
+//         String [] strarray = my_string.split(" ");
+//         System.out.print(Arrays.toString(strarray));
+//          for (int i=0; i<strarray.length; i++) {
+//              if (!strarray[i].isBlank())  {
+//               answer +=Integer.valueOf(strarray[i]);
+//           }
+//              }
+//        return answer;
+//    }
+//}
+////가까운수
+//import java.util.Arrays;
+//class Solution {
+//    public int solution(int[] array, int n) {
+//        int answer = 0;
+//        int[] temp = new int[array.length];
+//        for (int i=0; i<array.length; i++) {
+//            temp[i] = Math.abs(array[i] -n);
+//        }
+//        System.out.print(Arrays.toString(temp));
+//        Arrays.sort(temp);
+//        for (int i=0; i<array.length; i++) {
+//            if ((n - temp[0] ) == array[i]) {
+//                answer = array[i];
+//                break;
+//            } else  {
+//                answer = temp[0] +n;
+//                
+//            } 
+//            
+//        }
+//        System.out.print(answer);
+//        return answer;
+//    }
+//}
+////진료순서정하기
+//import java.util.Arrays;
+//import java.util.Collections;
+//class Solution {
+//    public int[] solution(int[] emergency) {
+//        int[] answer = {};
+//        answer = new int[emergency.length];
+//        Integer[] temp = new Integer[emergency.length];
+//        for (int i=0; i<emergency.length; i++) {
+//            temp[i] = emergency[i];
+//        }
+//        Arrays.sort(temp,Collections.reverseOrder());
+//        for (int i=0; i<emergency.length; i++) {
+//            for (int j=0; j<emergency.length; j++) {
+//                if (emergency[i] == temp[j]) {
+//                    answer[i] = j+1;
+//                }
+//            }
+//        }
+//        return answer;
+//    }
+//}
+////한번등장문자
+//import java.util.*;
+//class Solution {
+//    public String solution(String s) {
+//        String answer = "";
+//        String temp = "";
+//        for (int i=0; i<s.length(); i++) {
+//                for (int j=i+1 ;j<s.length(); j++) {
+//                        if (s.charAt(i) == s.charAt(j)) {
+//                        s = s.replace(s.charAt(i) + "","0");
+//                        }  
+//                   }
+//                   if ((int)s.charAt(i)> 48) {
+//                    temp += s.charAt(i); 
+//            }
+//        }
+//        // for (int i=0; i<s.length(); i++) {
+//        //     if ((int)s.charAt(i)> 48) {
+//        //             answer += s.charAt(i); 
+//        //     }
+//        // }
+//        String[] temp2 = temp.split("");
+//       // System.out.print(Arrays.toString(temp));
+//     //   answer = "";
+//        Arrays.sort(temp2);
+//        temp = Arrays.toString(temp2);
+//        for (int i=0; i<temp2.length; i++) {
+//           answer += temp2[i];
+//        }
+//        
+//     //   answer =  Arrays.toSTring(temp);
+//        return answer;
+//        
+//        
+//    }
+//}
+//
+////좋은풀이 .. 알파벳개수 26개의 배열을 만들어 각 알파벳 등장 개수를 배열을 통해
+////확인하고 count가 1인것들을 뽑아 문자열로 만든다.
+//// class Solution {
+////     public String solution(String s) {
+////         int[] count = new int[26];
+////         for(int i=0; i<s.length(); i++){
+////             ++count[s.charAt(i)-'a'];
+////         }
+////         String answer = "";
+////         for(int i=0; i<count.length; i++){
+////             if(count[i] == 1){
+////                 answer += (char)('a'+i);
+////             }
+////         }
+////         return answer;
+////     }
+//// }
+////ctrl + z
+//import java.util.*;
+//class Solution {
+//    public int solution(String s) {
+//        Integer answer = 0;
+//        String[] strary = s.split(" ");
+//        for (int i=0; i<strary.length; i++ ) {
+//            if (strary[i].equals("Z")) {
+//                answer -= Integer.valueOf(strary[i-1]);
+//            } else {
+//                answer += Integer.valueOf(strary[i]);
+//            }
+//                
+//        }
+//        System.out.print(Arrays.toString(strary));
+//        return answer;
+//    }
+//}
+////7의개수
+//import java.util.*;
+//class Solution {
+//    public int solution(int[] array) {
+//        int answer = 0;
+//        
+//        StringBuilder stringBuilder = new StringBuilder();
+//
+//    for (int i = 0; i < array.length; i++) {
+//    stringBuilder.append(array[i]);
+//    }
+//    String str = stringBuilder.toString();
+//    for (int i=0; i<str.length(); i++) {
+//        if (str.charAt(i) == '7') {
+//            answer ++;
+//        }
+//    }
+//        return answer;
+//    }
+//}
+////이진수 더하기 <<<<<<<<<<<<<<<<<<< 하드코딩실패
+//class Solution {
+//    public String solution(String bin1, String bin2) {
+//    String answer = "";
+//        int num1 = Integer.parseInt(bin1, 2);
+//        int num2 = Integer.parseInt(bin2, 2);
+//        int res = num1+num2;
+//        answer = Integer.toBinaryString(res);
+//        return answer;
+//    }
+//}
+//        // return Integer.toBinaryString(Integer.parseInt(bin1,2)+Integer.parseInt(bin2,2));
+////       int dec1 =0;
+////       int dec2 =0;
+////         for (int i=0; i<bin1.length(); i++) {
+////             dec1 = (dec1<<1) + bin1.charAt(i)-'0';
+////         }
+////         for (int i=0; i<bin2.length(); i++) {
+////             dec2 = (dec2<<1) + bin2.charAt(i)-'0';
+////         }
+//        
+//        
+//        
+//        
+//        
+//// //         int dec2 = 0;
+//// //         int k2 = bin2.length() -1;
+//// //         int multi2 = 1;
+//
+//// //         for (int i=0; i<bin2.length()-1; i++) {
+//// //             if (bin2.charAt(i) == '1') {
+//// //                 while(k2>0) {
+//// //                     multi2 *= 2;
+//// //                     k2--;
+//// //                     }
+//// //             dec2 += multi2;
+//// //             multi2 =1;
+//// //             k2 = bin2.length() -2 -i;
+//// //             }
+//// //         }
+//// //         if (bin2.charAt(bin2.length()-1) == '1' ) {
+//// //             dec2 ++;
+//// //         }
+//// //         System.out.println(dec2);
+//                    
+//        
+//// //         int dec1 = 0;
+//// //         int k1 = bin1.length() -1;
+//// //         int multi1 = 1;
+//// //         for (int i=0; i<bin1.length()-1; i++) {
+//// //             if (bin1.charAt(i) == '1') {
+//// //                 while(k1>0) {
+//// //                     multi1 *= 2;
+//// //                     k1--;
+//// //                     }
+//// //             dec1 += multi1;
+//// //             multi1 =1;
+//// //             k1 = bin2.length() -2 -i;
+//// //             }
+//// //         }
+//// //         if (bin1.charAt(bin1.length()-1) == '1' ) {
+//// //             dec1 ++;
+//// //         }
+//// //         System.out.println(dec1);
+//        
+////         int resultdec = dec1 + dec2;
+//        
+////         for(int i=resultdec; i>0; i/=2) {
+//// 			answer = String.valueOf(i%2) + answer; //오른쪽 부터 집어넣는다.
+//// 		}
+//
+////         return answer;
+////     }
+//// }
