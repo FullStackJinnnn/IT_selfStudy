@@ -741,3 +741,53 @@
 ////         return answer;
 ////     }
 //// }
+//소인수분해
+//import java.util.*;
+//class Solution {
+//    public int[] solution(int n) {
+//        ArrayList<Integer> answer = new ArrayList<>();
+//        int count =0;
+//        for (int i=2; i<=n; i++) {
+//            if (n%i == 0) {
+//                for (int j=1; j<=i; j++) {
+//                    if (i%j ==0) {
+//                        count ++;
+//                    }
+//                }
+//           if (count ==2) {
+//            answer.add(i);   
+//            }
+//                count =0;
+//            }
+//        }
+//        
+//         int[] answerArr = answer.stream()
+//                .mapToInt(i -> i)
+//                .toArray();
+//        
+//        return answerArr;
+//    }
+//}
+////잘라서배열저장
+//
+//import java.util.*;
+//
+//class Solution {
+//    public String[] solution(String my_str, int n) {
+//        List<String> list = new ArrayList<>();
+//        String cut = "";
+//
+//        for(int i =0; i<my_str.length(); i++){
+//            cut += my_str.charAt(i);
+//            if(cut.length() == n || i+1 == my_str.length()){
+//                list.add(cut);
+//                cut = "";
+//            }
+//        }
+//        String[] answer = new String[list.size()];
+//        for(int i=0; i<list.size(); i++){
+//            answer[i] = list.get(i);
+//        }
+//        return answer;
+//    }
+//}
