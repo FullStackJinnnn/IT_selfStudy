@@ -799,3 +799,45 @@
 //        return answer;
 //    }
 //}
+////문자열 계산하기
+//import java.util.*;
+//class Solution {
+//    public int solution(String my_string) {
+//        int answer = 0;
+//       
+//        String [] strarray = my_string.split(" ");
+//        System.out.println(Arrays.toString(strarray));
+//        answer = Integer.valueOf(strarray[0]);
+//         for (int i=1; i<strarray.length-1; i++) {
+//             if (strarray[i].equals("+")) {
+//                 answer += Integer.valueOf(strarray[i+1]) ;
+//             } else if (strarray[i].equals("-")) {
+//                 answer -= Integer.valueOf(strarray[i+1]) ;
+//             }
+//        //     if (my_string.charAt(i))
+//        // }
+//         }
+//        return answer;
+//    }
+//}
+////영어가싫어요
+//import java.util.*;
+//
+//class Solution {
+//    public long solution(String numbers) {
+//        long answer = 0;
+//        String temp = "";
+//        String[] strnum = new String[10];
+//        String[] str = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+//        for (int i=0; i<str.length; i++) {
+//          numbers=  numbers.replace(str[i],String.valueOf(i));
+//        }
+//        System.out.println(numbers);
+//        answer = Long.parseLong(numbers);
+//        
+//        
+//        
+//        return answer;
+//        
+//    }
+//}
