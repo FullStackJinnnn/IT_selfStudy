@@ -841,3 +841,23 @@
 //        
 //    }
 //}
+//구슬을 나누는 경우의수 -> 실패
+class Solution {
+    public int solution(int balls, int share) {
+        int answer = 0;
+        int b_s = balls-share;
+        for (int i=1; i<balls; i++) {
+            balls *= i;
+             System.out.println(balls);
+        }
+        System.out.println(balls);
+        for (int i=1; i<b_s; i++) {
+            b_s *= i;
+        }
+        for (int i=1; i<share; i++) {
+            share *= i;
+        }
+        answer = balls/b_s/share;
+        return answer;
+    }
+}
