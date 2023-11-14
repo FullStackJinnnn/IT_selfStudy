@@ -841,23 +841,29 @@
 //        
 //    }
 //}
-//구슬을 나누는 경우의수 -> 실패
-class Solution {
-    public int solution(int balls, int share) {
-        int answer = 0;
-        int b_s = balls-share;
-        for (int i=1; i<balls; i++) {
-            balls *= i;
-             System.out.println(balls);
-        }
-        System.out.println(balls);
-        for (int i=1; i<b_s; i++) {
-            b_s *= i;
-        }
-        for (int i=1; i<share; i++) {
-            share *= i;
-        }
-        answer = balls/b_s/share;
-        return answer;
-    }
-}
+//구슬을 나누는 경우의수 -> 다시생각해보기 double안쓰고 ..
+//다시생각해보쟈 .......
+//import java.util.*;
+//class Solution {
+//    public double solution(double balls, double share) {
+//        double answer = 1;
+//        double b_s = balls-share;
+//        double temp = 1;
+//        double temp2 = 1;
+//        if (b_s !=0) {
+//            for (double i=share+1; i<=balls; i++) {
+//                temp *= i;
+//            }
+//            for (double i=1; i<=b_s; i++) {
+//                temp2 *= i;
+//            } 
+//            answer = Math.round(temp/temp2);
+//        } else {
+//            answer = 1;
+//        }
+//        
+//       
+//        
+//        return answer;
+//    }
+//}
