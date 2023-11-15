@@ -867,3 +867,26 @@
 //        return answer;
 //    }
 //}
+//삼각형의 완성조건2
+//import java.util.*;
+//class Solution {
+//    public int solution(int[] sides) {
+//        int answer = 0;
+//        Arrays.sort(sides);
+//       
+//        int small = sides[1]-sides[0]+1;
+//        int big = sides[1]+sides[0]-1;
+//        while (small<=sides[1]) {
+//            answer ++;
+//            small ++;
+//      
+//        }    
+//        while (big>sides[1]) {
+//            answer ++;
+//            big --;
+//        
+//        }
+//        
+//        return answer;
+//    }
+//}
