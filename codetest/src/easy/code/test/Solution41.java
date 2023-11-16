@@ -890,3 +890,39 @@
 //        return answer;
 //    }
 //}
+// 외계어 --> 실패
+//class Solution {
+//    public int solution(String[] spell, String[] dic) {     
+//        int answer = 0;
+//        int count = 0;
+//        int temp = 0;
+//        int temp2 = 0;
+//            for (int j=0; j<dic.length; j++) { 
+//                 for (int i=0; i<spell.length; i++) {
+//                for (int k=0; k<dic[j].length(); k++) {
+//                        if (spell[i].equals(dic[j].charAt(k) + "")) {
+//                        count ++;
+//                         System.out.println("count 는   " + count);
+//                        } else if (!spell[i].equals(dic[j].charAt(k) + "")) {
+//                        temp2 --;
+//                            System.out.println("temp2 는   " + temp2);
+//                        }
+//                    }
+//                }
+//                if (count == spell.length) {
+//                    if (temp2 != -spell.length) {
+//                        temp ++;
+//                    }
+//                } 
+//            count = 0;
+//            temp2 = 0;
+//        }
+//        if (temp >=1) {
+//            answer = 1;
+//        } else 
+//            answer = 2;
+//       
+//        
+//        return answer;
+//    }
+//}
