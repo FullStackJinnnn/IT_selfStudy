@@ -1,4 +1,4 @@
-////입문 코드문제 모음 ... 
+//입문 코드문제 모음 ... 
 //package easy.code.test;
 //
 //import java.util.Scanner;
@@ -891,38 +891,28 @@
 //    }
 //}
 // 외계어 --> 실패
+//import java.util.*;
 //class Solution {
-//    public int solution(String[] spell, String[] dic) {     
+//    public int solution(String[] spell, String[] dic) {
 //        int answer = 0;
-//        int count = 0;
-//        int temp = 0;
-//        int temp2 = 0;
-//            for (int j=0; j<dic.length; j++) { 
-//                 for (int i=0; i<spell.length; i++) {
-//                for (int k=0; k<dic[j].length(); k++) {
-//                        if (spell[i].equals(dic[j].charAt(k) + "")) {
-//                        count ++;
-//                         System.out.println("count 는   " + count);
-//                        } else if (!spell[i].equals(dic[j].charAt(k) + "")) {
-//                        temp2 --;
-//                            System.out.println("temp2 는   " + temp2);
-//                        }
-//                    }
+//        for(int i = 0 ; i< dic.length ; i++)
+//        {
+//            int count  = 0 ;
+//            for(int j = 0 ; j < spell.length ; j++)
+//            {
+//                if(dic[i].indexOf(spell[j]) == -1)
+//                {
+//                    count = 1;
+//                    answer = 2;
+//                    break;
 //                }
-//                if (count == spell.length) {
-//                    if (temp2 != -spell.length) {
-//                        temp ++;
-//                    }
-//                } 
-//            count = 0;
-//            temp2 = 0;
-//        }
-//        if (temp >=1) {
+//            }
+//            if(count == 0 )
+//            {
 //            answer = 1;
-//        } else 
-//            answer = 2;
-//       
-//        
+//            break;
+//            }
+//        }
 //        return answer;
 //    }
 //}
