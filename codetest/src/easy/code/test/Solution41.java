@@ -916,3 +916,114 @@
 //        return answer;
 //    }
 //}
+////종이자르기
+//class Solution {
+//    public int solution(int M, int N) {
+//        int answer = 0;
+//        if (M*N > 1) {
+//            answer = M*N-1;
+//        } else {
+//            answer = 0;
+//        }
+//        return answer;
+//    }
+//}
+////캐릭터의 좌표
+//class Solution {
+//    public int[] solution(String[] keyinput, int[] board) {
+//        int[] answer = {};
+//        answer = new int[2];
+//        int updn = 0;
+//        int ltrt = 0;
+//        
+//        for (int i=0; i<keyinput.length; i++) {
+//            System.out.println(board[1]/2);
+//            // if (-board[1]/2 < updn && updn < board[1]/2 && -board[0]/2 <ltrt && ltrt < board[0]/2 ) {
+//                switch (keyinput[i]) {
+//                    case "left" : 
+//                        if (ltrt <= -board[0]/2 ){
+//                            break;
+//                        }          
+//                        ltrt --;
+//                        break;
+//                    
+//                    case "right" :
+//                        if (ltrt >= board[0]/2 ){
+//                            break;
+//                        } 
+//                        ltrt ++;
+//                        break;
+//                        
+//                    case "down" :
+//                        if (updn <= -board[1]/2 ){
+//                            break;
+//                        }
+//                        updn --;
+//                        break;
+//                      
+//                    case "up" :
+//                        if (updn >= board[1]/2 ){
+//                            break;
+//                        }
+//                        updn ++;
+//                        break;
+//                }
+//            
+//        }
+//        answer[0] = ltrt;
+//        answer[1] = updn;
+//        return answer;
+//    }
+//}
+////직사각형 넓이구하기
+//import java.util.*;
+//class Solution {
+//    public int solution(int[][] dots) {
+//        int answer = 0;
+//        int[] temp = new int[2];
+//        for (int i=1; i<dots.length; i++ ) {
+//            if (dots[0][0] != dots[i][0]) {
+//                temp[0] = dots[i][0];
+//                
+//            
+//            } 
+//            else if (dots[0][1] != dots[i][1]) {
+//                temp[1] = dots[i][1];
+//            
+//            //System.out.print((dots[i][0]));
+//             }
+//        }
+//        answer = Math.abs(dots[0][0] - temp[0])*Math.abs(dots[0][1] - temp[1]);
+//        return answer;
+//    }
+//}
+////로그인성공
+//class Solution {
+//    public String solution(String[] id_pw, String[][] db) {
+//        String answer = "";
+//        int count = 0;
+//        int count2 = 0;
+//        int count3 = 0;
+//        for (int i=0; i<db.length; i++) {
+//            
+//                if(id_pw[0].equals(db[i][0]) && id_pw[1].equals(db[i][1])) {
+//                    count ++;
+//                } else if (id_pw[0].equals(db[i][0]) && !(id_pw[1].equals(db[i][1]))) {
+//                    count2 ++;
+//                } else {
+//                }               
+//                System.out.println(count);
+//        }
+//            if (count>0) {
+//                answer = "login";
+//                
+//            } else if (count2>0) {
+//                answer = "wrong pw";
+//            } else {
+//                answer = "fail";
+//            }
+//        
+//                   
+//        return answer;
+//    }
+//}
