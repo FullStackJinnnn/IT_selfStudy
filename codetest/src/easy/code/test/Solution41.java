@@ -1027,3 +1027,15 @@
 //        return answer;
 //    }
 //}
+//등수 매기기
+//class Solution {
+//    public int[] solution(int[][] score) {
+//        int[] answer = {};
+//        int[] temp = new int[score.length];
+//        for (int i=0; i<score.length; i++) {
+//            temp [i] = (score[i][0] + score[i][1])/2 ;
+//            
+//        }
+//        return answer;
+//    }
+//}
