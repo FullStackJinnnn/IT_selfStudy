@@ -1028,14 +1028,58 @@
 //    }
 //}
 //등수 매기기
+//import java.util.*;
 //class Solution {
 //    public int[] solution(int[][] score) {
 //        int[] answer = {};
+//        answer = new int[score.length];
 //        int[] temp = new int[score.length];
 //        for (int i=0; i<score.length; i++) {
-//            temp [i] = (score[i][0] + score[i][1])/2 ;
-//            
+//            temp [i] = score[i][0] + score[i][1];
 //        }
+//        
+//        Arrays.sort(temp);
+//        for (int i=0; i<score.length; i++) {
+//            for (int j=0; j<score.length; j++) {
+//                if (score[i][0] + score[i][1] == temp[j]) {
+//                    answer[i] = score.length-j;
+//                    System.out.println(answer[i]);
+//                    
+//                }
+//            
+//            }
+//        }
+//        
+//        
+//        return answer;
+//    }
+//}
+////치킨 쿠폰
+//class Solution {
+//    public int solution(int chicken) {
+//        int answer = 0;
+//        int restcoup = 0;
+//        int restrestcoup =0;
+//        while (chicken>0) {
+//            restcoup += chicken%10;
+//            
+//            chicken = chicken/10 ;
+//            
+//            
+//            answer += chicken;
+//            System.out.println(restcoup);
+//        }
+//        while (restcoup >0) {
+//                restrestcoup += restcoup %10;
+//                restcoup = restcoup/ 10;
+//                answer += restcoup;
+//            }
+//        
+//        while (restrestcoup>0) {
+//            restrestcoup = restrestcoup /10;
+//            answer += restrestcoup;
+//        }
+//        
 //        return answer;
 //    }
 //}
