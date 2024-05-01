@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://ddoljin:1234@cluster0.6vtyedu.mongodb.net/?retry
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!~!!!!!!!!!!!!!!!!')
+  res.send('Hello World!~!!!!!!!!!!!!!!!~~~~~~~~~~~~@@@~~~~~~SS!')
 })
 
 
