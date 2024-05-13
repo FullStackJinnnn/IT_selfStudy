@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!~!!!!!!!!!!!!!!!~~~~~~~~~~~~@@@~~~~~~SS!')
 })
 
+app.get('/api/hello', (req,res)=> {
+  res.send("안녕하세요~FRONT")
+})
+
 
 
 //회원 가입 할때 필요한 정보들을 cliend에서 가져오면
