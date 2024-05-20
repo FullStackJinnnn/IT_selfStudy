@@ -1,56 +1,3 @@
-# 함수 vs 메서드
-# 내장함수 vs 사용자 정의 함수
-
-# 개발자들이 만들어놓은 유용한 다양한 함수들이 있다.
-# 함수들의 묶음이 생기기 시작
-# 함수 묶음 == 모듈, 라이브러리
-# 모듈(모듈안의 함수)을 사용하기 위해서는 import(다운로드, 설치, install)
-
-#파이썬은 기능이 많다는게 장점이기 때문에 모듈, 라이브러리가 중요하다.
-
-
-
-##from 모듈명 import 함수명1,함수명2,함수명3
-##from 모듈명 import 함수명 as 함수별칭
-##별도의 설치없이 import를 할수 있는 애들을 "표준 모듈" 이라 부른다.
-
-## random.sample 첫번째 인자 범위내에서 두번째 인자 숫자만큼 데이터를 뽑아주세요
-
-## ★LOTTO GAME 설계서★
-## 로또 게임은 4가지의 메뉴가 있습니다!
-## 1. 로또 구매하기 (로또번호는 1~15) 
-## 2. 로또 정답확인 및 전체 당첨 확률 출력
-## 3. 수령한 로또 금액 확인 
-## 4. 종료
-## 사용자는 기본 자본금이 주어집니다! 10000원 
-## 사용자는 로또를 구매할수 있는 개수를 선택한 후 구매합니다.  (1~3) 1개에 500원~
-## 이번회차의 로또 정답과 구매한 로또의 정답을 확인해 당첨된 금액을 수령합니다!
-## 사용자는 로또를 구매할때마다 새로운 로또번호가 생성되며 3번을 누르면
-## 누적수령한 로또 수령금액을 확인할 수 있습니다.
-
-
-## 한글코딩★
-## 로또게임 START !
-## 로또게임 메뉴출력
-## 1번선택시
-## 몇개를 구매하시겠습니까 ?! ( 1~5 )
-## 구매개수 선택 ex 3
-## 첫번쨰 로또 번호를 3개 입력해주세요 !
-## 로또 번호 입력 (1, 4, 11)
-## 첫번쨰 로또 번호를 3개 입력해주세요 !
-## 로또 번호 입력 (1, 2, 12)
-## 첫번쨰 로또 번호를 3개 입력해주세요 !
-## 로또 번호 입력 (1, 5, 9)
-## 메뉴로 돌아감
-## 2번 선택시
-## ☆축하드립니다~  2등 당첨! 수령금은 5만원 입니다~! or 꽝 출력 및
-## 전체 당첨 확률 출력
-## 메뉴출력
-## 3번 선택시
-## 현재 자본은 40000원 입니다!
-## 4번 선택시
-## 종료
-
 import random as r
 import time as t
 import matplotlib.pyplot as plt
@@ -65,181 +12,241 @@ def lottoGame():
         "   `-'`'-`))       88 \"8a,   ,a8\"  88,     88,  \"8a,   ,a8\"",
         "          ((       88  `\"YbbdP\"'   \"Y888   \"Y888 `\"YbbdP\"'",
         "           ))",          
-        "           ||"               
+        "           ||",
+        "",
+        "========================게임 이용 방법======================",
+        "1. 로또번호는 1~15 사이의 랜덤한 3개의 숫자 입니다. (중복 X)",
+        "2. 초기자산은 5000원이며 1개 구매 가격은 1000원 입니다.", 
+        "3. 처음은 1회차 이며 당첨을 확인하면 다음회차로 넘어갑니다.",
+        "4. 다음회차로 넘어가면 구매 가격은 1000원 증가합니다.",
+        "============================================================",
+        ""
     ]
 
     for line in art:
         print(line)
 
-  
-    lottoBuyList = [[]]
+    ## 사용할 변수 초기화
+        
+    ## 구매한 로또 리스트를 담을 변수 추후 3차원으로 사용
+    ## 1차원 : 회차 리스트를 담음
+    ## 2차원 : 각 회차에 구매한 로또번호그룹 리스트를 담음
+    ## 3차원 : 각 로또 번호를 담음 
+    lottoBuyList = []
+
+    ## 구매한 시간 저장
     lottoBuyTime = []
+
+    ## 구매한 로또의 당첨 기록 저장
     lottoWinHistory = []
+
+    ## 로또 당첨 번호 저장
     lottoNumber = []
     lottoNumber.append(r.sample(range(1, 15), 3))
+
+    ## 초기 자산
     defaultMoney = 5000
+
+    ## 초기 로또 가격
+    lottoPrice = 1000
+
+    ## 구매한 로또의 맞은 숫자 개수 저장
     matchCnt = []
+
+    ## 구매할 로또 개수
     lottoBuyCnt = 0
+    
+    ## 이번 회차에 구매한 총 로또 개수 
     thisRoundTotalLottoBuyCnt = 0
-    winNum = 0
-    moneyChangedY =[5000]
-    moneyChangedX =[0]
-    winChkFlag=False
-    lottoRound =1
+
+    ## 그래프를 위한 회차에 따른 자산 변화 저장
+    moneyChangedY = [5000]
+    moneyChangedX = [0]
+
+    ## 당첨을 확인한걸 판단해서 다음 회차로 넘어가기 위한 Flag
+    winChkFlag = False
+
+    ## 초기 회차
+    lottoRound = 1
+	
+    ## 초기 회차 정보를 저장할 리스트 추가
+    lottoWinHistory.append([])
+    lottoBuyTime.append([])
+    lottoBuyList.append([])
      
     while True:
-        print("┌───────── LoTTo Game ─────────┐")
+        print("\n┌───────── LoTTo Game ─────────┐")
         print("│                                                │")
         print("│       경    고:  도박은 좋지 않습니다...       │")
         print("│                                                │")
+        print("│       0. 종료                                  │")
         print("│       1. 구매하기                              │")
-        print("│       2. 당첨 및 자산 변화 그래프 확인         │")
-        print("│       3. 확률 확인                             │")
-        print("│       4. 종료                                  │")
+        print("│       2. 당첨 확인 및 자산 그래프 확인         │")
+        print("│       3. 구매기록 확인                         │")
         print("└────────────────────────┘\n")
-        select = int(input("번호를  입력하세요 >> "))
-        
-        if select == 4:
+        while True:
+            try:
+                select = int(input("번호를  입력하세요 >> "))
+                if select < 0 or 3 < select:
+                    print("0~3 사이의 숫자만 입력해주세요\n")
+                else:
+                    break
+            except:
+                print("0~3 사이의 숫자만 입력해주세요\n")
+            
+        if select == 0:
             print("\n게임을 종료합니다... ")
             break
         
         elif select == 1:
+            
+            ## 당첨을 확인 했다면 회차 증가 
             if winChkFlag:
                 lottoRound += 1
+                lottoPrice += 1000
                 lottoBuyCnt = 0
                 thisRoundTotalLottoBuyCnt = 0
-            print("◆ " + str(lottoRound) + "회차 로또 ◆")
-            print("현재자산 : " + str(defaultMoney) + " 원")
-            print("1개 가격 : 1000 원")
-            lottoBuyCnt = int(input("몇개를 구매하시겠습니까? >>"))
-            if defaultMoney - 1000 * lottoBuyCnt < 0:
-                print("돈이 부족합니다")
-            else:
-                if winChkFlag:
-                    lottoNumber.append(r.sample(range(1, 15), 3))
-                    print(lottoNumber) 
-                    matchCnt = []
+                lottoNumber.append(r.sample(range(1, 16), 3))
+                matchCnt = []
                 lottoWinHistory.append([])
                 lottoBuyTime.append([])
                 lottoBuyList.append([])
-                for i in range(lottoBuyCnt):
-                    lottoBuyList[lottoRound-1].append([])
-                    matchCnt.append(0)
-                print("[로그] lottoBuyList :" + str(lottoBuyList))
                 
+            print("\n◆ " + str(lottoRound) + "회차 로또 ◆")
+            print("현재자산 : " + str(defaultMoney) + " 원")
+            print("1개 가격 : " + str(lottoPrice) + " 원\n")
 
+            while True:
+                try:
+                    lottoBuyCnt = int(input("몇개를 구매하시겠습니까? >> "))
+                    if lottoBuyCnt < 1 :
+                        print("1이상의 숫자만 입력해주세요\n")
+                    else :
+                        break
+                except:
+                    print("1이상의 숫자만 입력해주세요\n")
+            if defaultMoney - lottoPrice * lottoBuyCnt < 0:
+                print("돈이 부족합니다\n")
                 
-                print("[로그] lottoNumber :" + str(lottoNumber))
-                defaultMoney -= 1000 * lottoBuyCnt
-               
-                
-                
-              
-                print("[로그] moneyChangedX :" + str(moneyChangedX))
-                    
-                for i in range(lottoBuyCnt):
-                    print(str(i+1) + "번째 로또 번호를 입력해주세요")
-                    for j in range(3):
-                        while True:
+                ## 돈이 부족해서 구매에 재진입했을때 회차를 증가시키지 않기 위한 Flag 변경
+                winChkFlag = False
+                continue
+            
+            ## 각 회차의 정보 리스트를 담기위해 리스트 추가
+            for i in range(lottoBuyCnt):
+                lottoBuyList[lottoRound-1].append([])
+                matchCnt.append(0)
+
+            defaultMoney -= lottoPrice * lottoBuyCnt
+
+            ## 구매할 로또 개수만큼 로또 번호 입력 (로또 1개당 3개의 숫자)
+            for a in range(lottoBuyCnt):
+                print("\n" + str(a+1) + "번째 로또 번호를 입력해주세요 (1개씩)")
+                for i in range(3):
+                    while True:
+                        try:
                             inputNum = int(input()) 
-                            if inputNum in lottoBuyList[lottoRound-1][i+thisRoundTotalLottoBuyCnt]:
-                                print("중복된 번호! 다시 입력하세요")
+                            if inputNum in lottoBuyList[lottoRound-1][a+thisRoundTotalLottoBuyCnt]:
+                                print("중복된 번호! 다시 입력하세요\n")
+                            elif inputNum < 1 or 15 < inputNum:
+                                print("1~15 사이의 숫자만 가능합니다. 1개씩 다시 입력해주세요\n")
                             else:
-                                lottoBuyList[lottoRound-1][i+thisRoundTotalLottoBuyCnt].append(inputNum)
-                                print(lottoBuyList[lottoRound-1][i+thisRoundTotalLottoBuyCnt])
+                                lottoBuyList[lottoRound-1][a+thisRoundTotalLottoBuyCnt].append(inputNum)
                                 break
-                    lottoBuyTime[lottoRound-1].append(t)
-                print("[로그] lottoBuyList :" + str(lottoBuyList))
-                thisRoundTotalLottoBuyCnt += lottoBuyCnt
-                winChkFlag=False
+                        except:
+                            print("1~15 사이의 숫자만 가능합니다. 1개씩 다시 입력해주세요\n")
+                lottoBuyTime[lottoRound-1].append(t.strftime('%Y-%m-%d %H:%M:%S'))
+
+            thisRoundTotalLottoBuyCnt += lottoBuyCnt
+
+            ## 새로운 회차에 진입했음으로 당첨확인 Flag 변경 
+            winChkFlag = False
 
         elif select == 2:
-            if len(lottoBuyList[lottoRound-1]) == 0:
-                print("구매한 로또가 없습니다...")
+            if len(lottoBuyList[0]) == 0:
+                print("※ 구매한 로또가 없습니다...")
                 continue
             else:
-                print("matchCnt:"+str(matchCnt))
-                print("♣ " + str(lottoRound) +"회차 로또 번호 ♣")
-                print(lottoNumber[lottoRound-1])
-                print()
-                print("♧ 구매한 로또 번호 ♧")
-                for i in range(thisRoundTotalLottoBuyCnt):
-                      print(lottoBuyList[lottoRound-1][i])
+                
+                ## 돈이 부족해서 구매하지 못하고 당첨을 확인했을때 이전에 구매한 그래프만 출력해주기 위한 체크
+                if thisRoundTotalLottoBuyCnt != 0:
+                    print("\n♣ " + str(lottoRound) +"회차 로또 번호 ♣")
+                    print(lottoNumber[lottoRound - 1])
+                    
+                    print("\n♧ 구매한 로또 번호 ♧")
+                    for i in range(thisRoundTotalLottoBuyCnt):
+                        print(lottoBuyList[lottoRound - 1][i])
 
-                if not winChkFlag:
-                    for i in range(len(lottoNumber[lottoRound-1])):
-                        for j in range(thisRoundTotalLottoBuyCnt):
-                            for k in range(len(lottoNumber[lottoRound-1])):
-                                if lottoBuyList[lottoRound-1][j][k] == lottoNumber[lottoRound-1][i]:
-                                    matchCnt[j] += 1
-                                    break
-                print(matchCnt)
-                            
-                for i in range(thisRoundTotalLottoBuyCnt):
-                    if matchCnt[i] == 1 :
-                        print("축하축하 3등당첨...!")
-                        if not winChkFlag:
-                            defaultMoney += 10000
-                            winNum += 1
-                            lottoWinHistory[lottoRound-1].append("3등")
-                    elif matchCnt[i] == 2 :
-                        print("축하합니다!!!!!!!!!! 2등당첨")
-                        if not winChkFlag:
-                            defaultMoney += 500000
-                            winNum += 1
-                            lottoWinHistory[lottoRound-1].append("2등")
-
-                    elif matchCnt[i] == 3 :
-                        print("★☆★☆대박☆★☆★ 1등당첨")
-                        if not winChkFlag:
-                            defaultMoney += 100000000
-                            winNum += 1
-                            lottoWinHistory[lottoRound-1].append("1등")
-                    else:
-                        print("꽝")
-                        lottoWinHistory[lottoRound-1].append("꽝")
+                    if not winChkFlag:
                         
-                if not winChkFlag:
-                    moneyChangedX.append(lottoRound)
-                    moneyChangedY.append(defaultMoney)
-                winChkFlag=True     
-   
+                        ## 구매한 로또 개수만큼 반복
+                        for a in range(thisRoundTotalLottoBuyCnt):
+                            
+                            ## 로또 숫자 개수만큼 각각의 자리 비교
+                            for i in range(len(lottoNumber[lottoRound - 1])):
+                                for j in range(len(lottoNumber[lottoRound-1])):
+                                    if lottoBuyList[lottoRound - 1][a][i] == lottoNumber[lottoRound - 1][j]:
+                                        matchCnt[a] += 1
+                                        break
 
-                    
+                    print("\n★★ 당첨 결과 ★★")             
+                    for i in range(thisRoundTotalLottoBuyCnt):
+                        if matchCnt[i] == 1:
+                            print("축하축하 3등당첨...!")
+                            if not winChkFlag:
+                                defaultMoney += 10000
+                                lottoWinHistory[lottoRound - 1].append("3등")
+                        elif matchCnt[i] == 2:
+                            print("축하합니다!!!!!!!!!! 2등당첨")
+                            if not winChkFlag:
+                                defaultMoney += 500000
+                                lottoWinHistory[lottoRound - 1].append("2등")
+                        elif matchCnt[i] == 3:
+                            print("★☆★☆대박☆★☆★ 1등당첨")
+                            if not winChkFlag:
+                                defaultMoney += 10000000
+                                lottoWinHistory[lottoRound - 1].append("1등")
+                        else:
+                            print("꽝")
+                            lottoWinHistory[lottoRound - 1].append("꽝")
 
-                    
-                    
-                print("[로그] moneyChangedY :" + str(moneyChangedY))
-                print("현재까지의 자산 변화 그래프")
-                plt.plot(moneyChangedX,moneyChangedY)
+
+                    ## 당첨 확인 할때마다 그래프에 append되지 않기위해 체크         
+                    if not winChkFlag:
+                        moneyChangedX.append(lottoRound)
+                        moneyChangedY.append(defaultMoney)
+                        
+                    ## 당첨을 확인해으니 Flag 변경 
+                    winChkFlag = True     
+
+                print("\n현재까지의 자산 변화 그래프")
+                plt.plot(moneyChangedX, moneyChangedY, 'o--')
+                plt.xticks(moneyChangedX)
+                plt.title('Money changed status')
+                plt.xlabel('Lotto Rounds')
+                plt.ylabel('Money')
                 plt.show()
 
-
-                print(lottoBuyTime[0][2].strftime('%Y-%m-%d %H:%M:%S'))
-                print(lottoBuyList[0][2])
-                print(lottoWinHistory[0][2])
-                
-                print(lottoBuyTime)
-                print(lottoBuyList)
-                print(lottoWinHistory)
-                
-                
         elif select == 3:
+            if len(lottoBuyList[0]) == 0:
+                print("※ 구매한 로또가 없습니다...")
+                continue
+            
+            ## 로또를 구매한 회차만큼 반복 
             for a in range(lottoRound):
-                print("---------------"+str(a+1)+"회차-----------")
-                print("당첨 번호 >>" + str(lottoNumber[a]))
-                print("구매시간  |   구매번호    |      당첨확인")
+                print("\n--------------------" + str(a + 1) + "회차------------------")
+                if len(lottoWinHistory[a]) == 0:
+                    print("당첨 번호 ▶ 미확인")
+                else:
+                    print("당첨 번호 ▶ " + str(lottoNumber[a]))
+                print("      구매시간        구매번호    당첨확인")
+                if len(lottoBuyList[a])==0 :
+                    print("※ 구매한 로또가 없습니다...")
+                          
+                ## 각회차에 구매한 로또 개수만큼 반복
                 for i in range(len(lottoBuyList[a])):
-                    print(str(lottoBuyTime[a][i].strftime('%Y-%m-%d %H:%M:%S')) + "   " + str(lottoBuyList[a][i]) + "    " + str(lottoWinHistory[a][i]))
-                   
-                            
-                        
-                    
-                    
-                
-                        
-                            
-                    
-
-                    
-                                
+                    if len(lottoWinHistory[a]) == 0:
+                        print(str(lottoBuyTime[a][i]) + "   " + str(lottoBuyList[a][i]) + "    " + "미확인")                        
+                    else:
+                        print(str(lottoBuyTime[a][i]) + "   " + str(lottoBuyList[a][i]) + "      " + str(lottoWinHistory[a][i]))
+            print("")
