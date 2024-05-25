@@ -1,52 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function LoginPage() {
 
-    const [Email, setEmail] = useState("")
-    const [Password, setPassword] = useState("")
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
 
-    const onEmailHander = (event) => {
-
-        setEmail(event.currrentTarget.value)
+    const onEmailHandler = (event) => {
+        setEmail(event.currentTarget.value);
     }
 
-    const onPasswordHander = (event) => {
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value);
+    }
 
-      setPassword(event.currrentTarget.value)
-  }
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        // 폼 제출 시 수행할 동작
+        console.log('Email:', Email);
+        console.log('Password:', Password);
+    }
 
-  const onSubmitHander = (event) => {
-
-   
+    return (
+        <div style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh'
+        }}>
+            <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={onSubmitHandler}>
+                <label>Email</label>
+                <input type="email" value={Email} onChange={onEmailHandler} />
+                <label>Password</label>
+                <input type="password" value={Password} onChange={onPasswordHandler} />
+                <br />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    );
 }
 
-
-
-
-
-
-
-
-
-
-  return (
-    <div sytle={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh'
-    }}>
-
-      <form style={{ display: 'flex', flexdirection: 'column' }}
-      onSubmit={onSubmitHandler}>
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
-        <lable>Password</lable>
-        <input type="password" value={Password} onChange />
-      </form>
-      <br />
-      <button>
-        Login
-      </button>
-    </div>
-  )
-}
-
-export default LoginPage
+export default LoginPage;
