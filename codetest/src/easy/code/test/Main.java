@@ -10,34 +10,31 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 
-		
+		int T = Integer.parseInt(br.readLine());
 
-		int[][] arr = new int[30][30];
-		for (int i = 0; i < 30; i++) {
+	
+		int[][] arr = new int[15][15];
+		long n1 = 0;
+		long n2 = 0;
+		long fiboFloor = 0;
+		int total = 0;
+		for (int i = 0; i < 15; i++) {
 			arr[0][i] = i + 1;
 		}
-		for (int i = 1; i < 30; i++) {
-			for (int j = 0; j < 30; j++) {
-				if (j <= i) {
+		for (int i = 1; i < 15; i++) {
+			for (int j = 0; j < 15; j++) {
+				if (j == 0) {
 					arr[i][j] = 1;
 				} else {
-					arr[i][j] = arr[i][j - 1] + arr[i - 1][j - 1];
+					arr[i][j] = arr[i][j - 1] + arr[i - 1][j];
 				}
 			}
 		}
-		
-		
-		int T = Integer.parseInt(br.readLine());
-		int[] ans = new int[2];
-		for (int a = 0; a < T; a++) {
-			String[] temp = br.readLine().split(" ");
+		for (int i = 0; i < T; i++) {
+			int n = Integer.parseInt(br.readLine());
+			int k = Integer.parseInt(br.readLine());
 
-		for (int i = 0; i < 2; i++) {
-			ans[i] = Integer.parseInt(temp[i]);
-		}
-
-			System.out.println(arr[ans[0] - 1][ans[1] - 1] + " ");
-
+				System.out.println(arr[n][k-1]);
+			}
 		}
 	}
-}
