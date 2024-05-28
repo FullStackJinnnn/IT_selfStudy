@@ -1,0 +1,372 @@
+  Scanner scan = new Scanner(System.in);
+	       
+	       // 사용자 입력
+	       String input = scan.nextLine();
+	       
+	       // 출력할 문자열 변수 초기화
+	       String output = "";
+	       
+	       // 가장 높은 점수를 저장할 변수 초화
+	       int max = 0;
+	       
+	       // 시험 응시자의 점수를 저장할 배열 선언 및 초기화
+	       int[] scoreArray = new int[3];
+	       scoreArray[0] = 0;
+	       scoreArray[1] = 0;
+	       scoreArray[2] = 0;
+	       
+	       // 입력받은 문자열을 숫자를 제외한 문자를 기준으로 잘라서 배열에 대입
+	       String[] numbers = input.split("[^0-9]+");
+	       //System.out.println(Arrays.toString(numbers));
+	 
+	       // 배열을 순회하며 정답이 맞으면 해당 번호를 찍은 응시자 점수 증가 
+	       for (int i=1; i<numbers.length; i+=2) {
+	    	 
+	    		   if (Integer.parseInt(numbers[i]) == 1) {
+	    			   scoreArray[0] += Integer.parseInt(numbers[i+1]);
+	    		   }
+	    		   if (Integer.parseInt(numbers[i]) == 3) {
+	    			   scoreArray[1] += Integer.parseInt(numbers[i+1]);
+	    		   }
+	    		   if (Integer.parseInt(numbers[i]) == 5) {
+	    			   scoreArray[2] += Integer.parseInt(numbers[i+1]);
+	    			   
+	    		   }
+	       }
+	       
+	       // 응시자의 점수중 최댓값을 max에 대입
+	       for (int i=0; i<scoreArray.length; i++) {
+	    	   
+	    	   if (scoreArray[i] > max) {
+	    	   max = scoreArray[i];
+	    	   }
+	    	   
+	       }
+	       
+	       // 가장 점수가 높은 응시자의 이름과 점수를 “이름 : 점수” 형태로 출력 
+	       System.out.print(" > ");
+	       if (scoreArray[0] != 0 && scoreArray[0] == max) {
+	    	   output = "a:" + scoreArray[0];
+	       }
+	       
+	       if (scoreArray[1] != 0 && scoreArray[1] == max) {
+	    	   
+	    	   if (output.isBlank()) {
+	    		   output = "b:" + scoreArray[1];
+	    	   } else {
+	    		   output = output.concat(", b:" + scoreArray[1]);
+	    	   }
+	    
+	       }
+	       
+	       if (scoreArray[2] != 0 && scoreArray[2] == max) {
+	    	   
+	    	   if (output.isBlank()) {
+	    		   output = "c" + scoreArray[2];
+	    	   } else {
+	    		   output = output.concat(", c:" + scoreArray[2]);
+
+
+	    	   }
+	    	   
+	       }
+	       System.out.println(output);
+
+===========================================
+
+
+
+package easy.code.test;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	 public static void main(String[] args) {
+		 
+	       Scanner scan = new Scanner(System.in);
+	       
+	       // 사용자 입력
+	       String input = scan.nextLine();
+	       Main main = new Main();
+	       main.solution(input);
+	      
+	 }
+	 public int solution(String input) {
+		// 출력할 문자열 변수 초기화
+	       String output = "";
+	       
+	       int totalValue = 0;
+	       
+	       // 입력받은 문자열을 숫자를 제외한 문자를 기준으로 잘라서 배열에 대입
+	       String[] numbersStrArr = input.split("[^0-9]+");
+	       numbersStrArr = Arrays.copyOfRange(numbersStrArr, 1, numbersStrArr.length);
+	       System.out.println(Arrays.toString(numbersStrArr));
+	       
+	       int[] numbersIntArr = new int[numbersStrArr.length];
+	       for (int i=0; i<numbersStrArr.length; i++) {
+	    	   numbersIntArr[i] = Integer.parseInt(numbersStrArr[i]);
+	       }
+	       output += "( ";
+	       for (int i=0; i<numbersIntArr.length-1; i++) {
+	    	   for (int j=i+1; j<numbersIntArr.length; j++) {
+  			   int num1=numbersIntArr[i];
+  			   int num2=numbersIntArr[j];
+  			   int leastCommonMult =1;
+  			   int divideNum=2;
+	    		   while (divideNum<num1 || divideNum<num2) {
+
+	    			   if (num1%divideNum == 0 && num2%divideNum == 0) {
+	    				   num1/=divideNum;
+	    				   num2/=divideNum;
+	    				   leastCommonMult *= divideNum;
+	    			   } 
+	    			   divideNum++;
+	    		   }
+	    		   leastCommonMult = leastCommonMult * num1 * num2;
+	    		   if (i==numbersIntArr.length-2) {
+	    			   output +="{"+num1+"|"+num2+"} > " + leastCommonMult;
+	    		   }
+	    		   else {
+	    			   output +="{"+num1+"|"+num2+"} > " + leastCommonMult + " + ";
+	    		   }
+	    		   totalValue += leastCommonMult;
+	    		   
+	    	   }
+	    	   
+	       }
+	       output +=" ) = " + totalValue;
+	       System.out.println(output);
+	       return totalValue;
+	 }
+	 
+	       
+	       
+	    
+}
+
+
+
+
+====================================================================
+
+
+
+
+package easy.code.test;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		// 사용자 입력
+		int input = scan.nextInt();
+		Main main = new Main();
+		main.solution(input);
+
+	}
+
+	public int solution(int input) {
+		int primeNumTotal = 5;
+		
+		
+		for (int i=4; i<=input; i++) {
+			int divideCnt =0;
+			for (int j=2; j<i; j++) {
+				if (i%j==0) {
+					divideCnt ++;
+				}
+			}
+			if (divideCnt ==0) {
+				primeNumTotal += i;
+			}
+		}
+		System.out.println(primeNumTotal);
+		return primeNumTotal;
+	}
+}
+
+
+===========================================
+소수의 합[JAVA]
+
+※문제이해
+
+양의 정수인 a값이 주어질 때 1부터 a값 이하에 존재하는 모든 소수의 합을 리턴하는 solution 함수를 작성
+
+소수란 1과 자기 자신으로만 나눠지는 수 ( 1은 소수가 아님 )
+
+a는 최소 4부터 주어짐
+
+
+
+※로직정리
+
+a는 최소 4부터 주어지기에 소수 2,3을 더한값 5로 소수의 합을 담을 변수 선언
+
+2중 반복문을 통해 4부터 a사이를 순회하며 소수인지 확인 후 소수라면 더하기
+
+소수 확인법
+
+반복문을 통해 1과 자기자신을 제외한 수로 나눴을때 나머지가 0이 되는지 확인
+
+만약 나머지가 0이 되는 수가 있다면 소수 X 아니라면 소수
+
+
+
+※코드 [JAVA]
+
+public int solution(int input) {
+
+// 소수를 모두 합한 변수 초기화
+
+// input은 최소 4부터 주어지기에 소수 2,3을 더한값으로 초기화
+
+int primeNumTotal = 5;
+
+// 4부터 input값까지 순회하며 반복
+
+for (int i = 4; i <= input; i++) {
+
+// 소수인지 확인을 위한 변수 초기회
+
+int divideCnt = 0;
+
+// 1과 자기자신은 무조건 나눴을때 나머지가 0이기에 제외
+
+for (int j = 2; j < i; j++) {
+
+// 나눴을때 나머지가 0이되는 숫자가 있는지 확인
+
+if (i % j == 0) {
+
+divideCnt++;
+
+}
+
+}
+
+// 나눠지는 숫자가 없었다면 i는 소수이기에 총합에 더하기
+
+if (divideCnt == 0) {
+
+primeNumTotal += i;
+
+}
+
+}
+
+System.out.print("> " + primeNumTotal);
+
+// 모든 소수의 합 리턴
+
+return primeNumTotal;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+=====================================
+
+등급 매기기 [MySQL]
+
+※문제이해
+
+DataBase Table를 확인해서
+
+A등급은 90점 이상 , B등급은 80점 이상 , C등급은 70점 이상 , D등급은 60점 이상  이 외 모든 점수는 F등급으로 매겨질 때, 학생의 이름과 등급을 가져오는 SQL문을 작성
+
+결석 회수가 4회 이상인 학생은 무조건 F등급
+
+모든 데이터는 null 값이 허용되지 않음
+
+코딩테스트 점수 테이블 사용
+
+
+
+※로직정리
+
+먼저 결석회수를 확인해 4회 이상이면 F
+
+이후 성적을 확인해서 등급 매김 (높은 등급 순으로)
+
+
+
+※쿼리 [MySQL]
+
+-- 이름과등급 선택
+
+SELECT NAME,
+
+CASE
+
+WHEN ABSENT >= 4 THEN 'F'
+
+WHEN SCORE >= 90 THEN 'A'
+
+WHEN SCORE >= 80 THEN 'B'
+
+WHEN SCORE >= 70 THEN 'C'
+
+WHEN SCORE >= 60 THEN 'D'
+
+ELSE 'F'
+
+END AS GRADE
+
+FROM STUDENTS;
+
+===================================
+
+부서별 최근 공지사항 [MySQL]
+
+※문제이해
+
+A 회사의 공지사항 테이블을 확인해서
+
+이 테이블에서 부서별 최신 공지사항의 제목, 조회수, 게시일을 가져오는 SQL문을 작성
+
+모든 데이터는 null 값이 허용되지 않음
+
+
+
+※로직정리
+
+서브쿼리를 통해 GROUP BY 와 MAX 를 사용해 부서별 최신 게시일선택
+
+이후 기존테이블과 비교해 부서명과 게시일이 동일한 데이터 선택 (제목, 조회수, 게시일)
+
+
+
+※SQL문 [MySQL]
+
+- NOTICES 테이블에서 제목, 조회수, 게시일 선택
+
+SELECT N.TITLE, N.VIEW_COUNT, N.POST_DATE
+
+FROM NOTICES N
+
+JOIN (
+
+	-- NOTICES 테이블에서 부서별로 그룹화 해서 부서, 가장최근 게시일 선택
+
+    SELECT NOTICE_DEPT, MAX(POST_DATE) AS MOSTRECENT_POST_DATE
+
+    FROM NOTICES
+
+    GROUP BY NOTICE_DEPT
+
+) MOSTRECENT_POST ON N.NOTICE_DEPT = MOSTRECENT_POST.NOTICE_DEPT AND N.POST_DATE = MOSTRECENT_POST.MOSTRECENT_POST_DATE;
+
+-- 서브쿼리의 테이블과 기존 테이블을 비교해 부서와 게시일이 동일한 데이터들만 엮어서 선택
